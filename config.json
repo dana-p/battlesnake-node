@@ -9,7 +9,7 @@
   },
   "snake" : {
     "name": "battlesnake-node",
-    "color": "#fff000",
+    "color": "#0000ff",
     "head_url": "http://battlesnake-node.herokuapp.com/",
     "taunt": {
       "state": "It's great to be alive!",
