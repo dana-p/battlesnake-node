@@ -44,8 +44,8 @@ router.post(config.routes.end, function (req, res) {
 
   // We don't need a response so just send back a 200
   res.status(200);
-  res.end();
   return res.json({end:'end'});
+    //res.end();
 });
 
 
