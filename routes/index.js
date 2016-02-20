@@ -31,7 +31,7 @@ router.post(config.routes.start, function (req, res) {
   // Do something here to start the game
   game = req.body;
   updateMap();
-  
+
   // Response data
   var data = {
     taunt: config.snake.taunt.start
