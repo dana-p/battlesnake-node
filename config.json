@@ -8,7 +8,7 @@
     "end": "/end"
   },
   "snake" : {
-    "name": "battlesnake-node",
+    "name": "danglingpointers",
     "color": "#0000ff",
     "head_url": "http://battlesnake-node.herokuapp.com/",
     "taunt": {
