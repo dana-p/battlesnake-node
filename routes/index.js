@@ -6,8 +6,13 @@ var router  = express.Router();
 router.get(config.routes.info, function (req, res) {
   // Response data
   var data = {
+    name: config.snake.name,
     color: config.snake.color,
     head_url: config.snake.head_url,
+    taunt: config.snake.taunt.state,
+    state: "alive",
+    coords: [[0, 0], [0, 1], [0, 2], [1, 2]],
+    score: 4
   };
 
   return res.json(data);
@@ -16,9 +21,12 @@ router.get(config.routes.info, function (req, res) {
 // Handle POST request to '/start'
 router.post(config.routes.start, function (req, res) {
   // Do something here to start the game
-
+  console.log('Game ID:', req.body.game_id);
   // Response data
   var data = {
+    name: config.snake.name,
+    color: config.snake.color,
+    head_url: config.snake.head_url,
     taunt: config.snake.taunt.start
   };
 
@@ -32,7 +40,7 @@ router.post(config.routes.move, function (req, res) {
   // Response data
   var data = {
     move: 'north', // one of: ["north", "east", "south", "west"]
-    taunt: config.snake.taunt.move
+    taunt: 'What?!' || config.snake.taunt.move
   };
 
   return res.json(data);
