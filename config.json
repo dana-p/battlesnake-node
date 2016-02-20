@@ -9,7 +9,7 @@
   },
   "snake" : {
     "name": "danglingpointers",
-    "color": "#0000ff",
+    "color": "#000000",
     "head_url": "http://battlesnake-node.herokuapp.com/",
     "taunt": {
       "state": "It's great to be alive!",
