@@ -30,7 +30,7 @@ router.get(config.routes.info, function (req, res) {
 router.post(config.routes.start, function (req, res) {
   // Do something here to start the game
   game = req.body;
-  console.log("this is the req.body" + game);
+  console.log("this is the req.body" + game.height);
   updateMap();
 
   // Response data
