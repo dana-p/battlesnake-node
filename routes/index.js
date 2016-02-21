@@ -179,6 +179,7 @@ function updateMap(req) {
   // Enter snakes
   try{
     for(var i = 0; i < snakes.length; i++){
+      console.log(snakes[i].coords)
       for(var j = 0; j < snakes[i].coords.length; j++){
         var p = pMatrix[snakes[i].coords[j][0]][snakes[i].coords[j][1]];
         matrix[snakes[i].coords[j][0]][snakes[i].coords[j][1]] = priority.snake * p;
