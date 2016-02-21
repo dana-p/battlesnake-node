@@ -46,6 +46,7 @@ router.post(config.routes.move, function (req, res) {
   // Do something here to generate your move
   console.log(req.body);
   var next = nextMove(req);
+  console.log(next);
   // Response data
   var data = {
     move: next, // one of: ["north", "east", "south", "west"]
@@ -179,7 +180,6 @@ function updateMap(req) {
   // Enter snakes
   try{
     for(var i = 0; i < snakes.length; i++){
-      console.log(snakes[i].coords)
       for(var j = 0; j < snakes[i].coords.length; j++){
         var p = pMatrix[snakes[i].coords[j][0]][snakes[i].coords[j][1]];
         matrix[snakes[i].coords[j][0]][snakes[i].coords[j][1]] = priority.snake * p;
@@ -196,6 +196,7 @@ function updateMap(req) {
 function nextMove(req) {
 
   updateMap(req);
+  console.log("coordinates: " + our_snake.coords);
   var max = 0;
   var values = [];
   var head = our_snake.coords[0];
