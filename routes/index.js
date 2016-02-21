@@ -138,8 +138,9 @@ function updateMap(req) {
       pMatrix[i][j] = priority.empty;
     }
   }
-
-  snakes = game.snakes;
+  try {
+    snakes = game.snakes;
+  } catch(err) {}
   try{
     our_snake = snakes.filter(function(snake) {
       return snake.id == our_snake_id;
@@ -147,7 +148,9 @@ function updateMap(req) {
   } catch(err) {}
 
   // Enter priority multiplier
-  pMatrix = fillPriority(our_snake, pMatrix);
+  try {
+    pMatrix = fillPriority(our_snake, pMatrix);
+  } catch(err) {}
 
   // Enter food
   try {
@@ -184,9 +187,9 @@ function updateMap(req) {
   } catch(err) {}
 
   matrix = math.add(matrix, pMatrix);
-  //prettyPrint(pMatrix);
-  //console.log('\n');
-  //prettyPrint(matrix);
+  prettyPrint(pMatrix);
+  console.log('\n');
+  prettyPrint(matrix);
 }
 
 function nextMove(req) {
