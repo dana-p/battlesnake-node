@@ -29,9 +29,7 @@ router.get(config.routes.info, function (req, res) {
 // Handle POST request to '/start'
 router.post(config.routes.start, function (req, res) {
   // Do something here to start the game
-  game = req.body;
-  console.log("this is the req.body" + game.height);
-  updateMap();
+  updateMap(req);
 
   // Response data
   var data = {
@@ -44,12 +42,12 @@ router.post(config.routes.start, function (req, res) {
 // Handle POST request to '/move'
 router.post(config.routes.move, function (req, res) {
   // Do something here to generate your move
-
-  var nextMove = nextMove();
-
+  console.log("hi");
+  var next = nextMove(req);
+  console.log(next);
   // Response data
   var data = {
-    move: nextMove, // one of: ["north", "east", "south", "west"]
+    move: next, // one of: ["north", "east", "south", "west"]
     taunt: 'What?!' || config.snake.taunt.move
   };
 
@@ -121,7 +119,8 @@ function fillPriority(s, m){
   return m;
 }
 
-function updateMap() {
+function updateMap(req) {
+  game = req.body;
 
   matrix = new Array(game.height);
   for (var i = 0; i < game.height; i++) {
@@ -180,9 +179,9 @@ function updateMap() {
   prettyPrint(matrix);
 }
 
-function nextMove() {
+function nextMove(req) {
 
-  updateMap();
+  updateMap(req);
   console.log("hey 1");
   var max = 0;
   var values = [];
@@ -203,7 +202,7 @@ function nextMove() {
   console.log("hey 5");
   availableDirections = directionValue.filter(function(d){return d.value == max });
   console.log(availableDirections);
-  
+
   var dir = availableDirections[Math.floor(Math.random()*availableDirections.length)];
   console.log(dir)
   return dir.direction;

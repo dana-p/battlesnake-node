@@ -36,8 +36,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.76277375">
-              <caret line="205" column="2" selection-start-line="205" selection-start-column="2" selection-end-line="205" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.3248175">
+              <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -48,7 +48,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-18.125">
               <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1456012488000" expanded="true" signature="256:345" placeholder="[...]" />
+                <marker date="1456012488000" expanded="true" signature="262:341" placeholder="{&quot;type&quot;: &quot;WTFPL&quot;...}" />
+                <marker date="1456012488000" expanded="true" signature="365:492" placeholder="{&quot;body-parser&quot;: &quot;^1.14.1&quot;...}" />
+                <marker date="1456012488000" expanded="true" signature="554:577" placeholder="{&quot;node&quot;: &quot;4.x&quot;...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -255,14 +260,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-18.125">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1456012488000" expanded="true" signature="256:345" placeholder="[...]" />
+            <marker date="1456012488000" expanded="true" signature="262:341" placeholder="{&quot;type&quot;: &quot;WTFPL&quot;...}" />
+            <marker date="1456012488000" expanded="true" signature="365:492" placeholder="{&quot;body-parser&quot;: &quot;^1.14.1&quot;...}" />
+            <marker date="1456012488000" expanded="true" signature="554:577" placeholder="{&quot;node&quot;: &quot;4.x&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76277375">
-          <caret line="205" column="2" selection-start-line="205" selection-start-column="2" selection-end-line="205" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.3248175">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
           <folding />
         </state>
       </provider>
