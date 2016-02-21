@@ -124,18 +124,18 @@ function fillPriority(s, m){
 function updateMap(req) {
   game = req.body;
 
-  matrix = new Array(game.height);
-  for (var i = 0; i < game.height; i++) {
-    matrix[i] = new Array(game.width);
-    for(var j = 0; j < game.width; j++){
+  matrix = new Array(game.width);
+  for (var i = 0; i < game.width; i++) {
+    matrix[i] = new Array(game.height);
+    for(var j = 0; j < game.height; j++){
       matrix[i][j] = priority.empty;
     }
   }
 
-  pMatrix = new Array(game.height);
-  for (var i = 0; i < game.height; i++) {
-    pMatrix[i] = new Array(game.width);
-    for(var j = 0; j < game.width; j++){
+  pMatrix = new Array(game.width);
+  for (var i = 0; i < game.width; i++) {
+    pMatrix[i] = new Array(game.height);
+    for(var j = 0; j < game.height; j++){
       pMatrix[i][j] = priority.empty;
     }
   }
@@ -188,8 +188,6 @@ function updateMap(req) {
   } catch(err) {}
 
   matrix = math.add(matrix, pMatrix);
-  prettyPrint(pMatrix);
-  console.log('\n');
   prettyPrint(matrix);
 }
 
