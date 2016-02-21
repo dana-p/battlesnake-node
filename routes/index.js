@@ -157,7 +157,7 @@ function updateMap(req) {
   try {
     for (var i = 0; i < game.food.length; i++) {
       var p = pMatrix[game.food[i][0]][game.food[i][1]];
-      matrix[game.food[i][0]][game.food[i][1]] = priority.food * p;
+      matrix[game.food[i][1]][game.food[i][0]] = priority.food * p;
     }
   } catch(err) {}
 
@@ -165,7 +165,7 @@ function updateMap(req) {
   try {
     for (var i = 0; i < game.walls.length; i++) {
       var p = pMatrix[game.walls[i][0]][game.walls[i][1]];
-      matrix[game.walls[i][0]][game.walls[i][1]] = priority.wall * p;
+      matrix[game.walls[i][1]][game.walls[i][0]] = priority.wall * p;
     }
   } catch(err) {}
 
@@ -173,7 +173,7 @@ function updateMap(req) {
   try {
     for (var i = 0; i < game.gold.length; i++) {
       var p = pMatrix[game.gold[i][0]][game.gold[i][1]];
-      matrix[game.gold[i][0]][game.gold[i][1]] = priority.gold * p;
+      matrix[game.gold[i][1]][game.gold[i][0]] = priority.gold * p;
     }
   } catch(err) {}
 
@@ -182,7 +182,7 @@ function updateMap(req) {
     for(var i = 0; i < snakes.length; i++){
       for(var j = 0; j < snakes[i].coords.length; j++){
         var p = pMatrix[snakes[i].coords[j][0]][snakes[i].coords[j][1]];
-        matrix[snakes[i].coords[j][0]][snakes[i].coords[j][1]] = priority.snake * p;
+        matrix[snakes[i].coords[j][1]][snakes[i].coords[j][0]] = priority.snake * p;
       }
     }
   } catch(err) {}
