@@ -208,10 +208,10 @@ function nextMove(req) {
   try{directionValue.push({"value" : matrix[headx+1][heady], "direction" : "south"})} catch (TypeError) {} //south
   try{directionValue.push({"value" : matrix[headx][heady-1], "direction" : "west"})} catch (TypeError) {} //west
 */
-  try{directionValue.push({"value" : matrix[headx-1][heady], "direction" : "west"})} catch (TypeError) {} //north
-  try{directionValue.push({"value" : matrix[headx][heady+1], "direction" : "north"})} catch (TypeError) {} //east
-  try{directionValue.push({"value" : matrix[headx+1][heady], "direction" : "east"})} catch (TypeError) {} //south
-  try{directionValue.push({"value" : matrix[headx][heady-1], "direction" : "south"})} catch (TypeError) {} //west
+  try{directionValue.push({"value" : matrix[headx-1][heady], "direction" : "east"})} catch (TypeError) {} //north
+  try{directionValue.push({"value" : matrix[headx][heady+1], "direction" : "south"})} catch (TypeError) {} //east
+  try{directionValue.push({"value" : matrix[headx+1][heady], "direction" : "west"})} catch (TypeError) {} //south
+  try{directionValue.push({"value" : matrix[headx][heady-1], "direction" : "north"})} catch (TypeError) {} //west
 
   dirValues = directionValue.map(function (d) {return d.value});
   max = Math.max.apply(Math, dirValues);
