@@ -122,7 +122,7 @@ function fillPriority(s, m){
 }
 
 function updateMap() {
-  console.log("hey 1");
+
   matrix = new Array(game.height);
   for (var i = 0; i < game.height; i++) {
     matrix[i] = new Array(game.width);
@@ -130,7 +130,7 @@ function updateMap() {
       matrix[i][j] = priority.empty;
     }
   }
-  console.log("hey 2");
+
   pMatrix = new Array(game.height);
   for (var i = 0; i < game.height; i++) {
     pMatrix[i] = new Array(game.width);
@@ -138,16 +138,16 @@ function updateMap() {
       pMatrix[i][j] = priority.empty;
     }
   }
-  console.log("hey 3");
+
   snakes = game.snakes;
-  console.log("hey 4");
+
   our_snake = snakes.filter(function(snake) {
     return snake.id == our_snake_id;
   })[0];
-  console.log("hey 5");
+
   // Enter priority multiplier
   pMatrix = fillPriority(our_snake, pMatrix);
-  console.log("hey 6");
+
   // Enter food
   for(var i = 0; i < game.food.length; i++){
     //console.log(matrix[game.food[i][0]][game.food[i][1]]);
@@ -156,11 +156,14 @@ function updateMap() {
   }
   console.log("hey 7");
   // Enter walls
-  if(game.walls != undefined) {
+  try {
     for (var i = 0; i < game.walls.length; i++) {
       var p = pMatrix[game.walls[i][0]][game.walls[i][1]];
       matrix[game.walls[i][0]][game.walls[i][1]] = priority.wall * p;
     }
+  } catch(err)
+  {
+    
   }
   console.log("hey 8");
   // Enter snakes
