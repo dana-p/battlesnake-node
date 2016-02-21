@@ -11,7 +11,8 @@ var priority = {
   "empty" : 0,
   "food" : 100,
   "snake" : -100,
-  "wall" : -100
+  "wall" : -100,
+  "gold" : 200
 };
 var pMatrix;
 
@@ -137,19 +138,22 @@ function updateMap(req) {
   }
 
   snakes = game.snakes;
-
-  our_snake = snakes.filter(function(snake) {
-    return snake.id == our_snake_id;
-  })[0];
+  try{
+    our_snake = snakes.filter(function(snake) {
+      return snake.id == our_snake_id;
+    })[0];
+  } catch(err) {}
 
   // Enter priority multiplier
   pMatrix = fillPriority(our_snake, pMatrix);
 
   // Enter food
-  for(var i = 0; i < game.food.length; i++){
-    var p = pMatrix[game.food[i][0]][game.food[i][1]];
-    matrix[game.food[i][0]][game.food[i][1]] = priority.food * p;
-  }
+  try {
+    for (var i = 0; i < game.food.length; i++) {
+      var p = pMatrix[game.food[i][0]][game.food[i][1]];
+      matrix[game.food[i][0]][game.food[i][1]] = priority.food * p;
+    }
+  } catch(err) {}
 
   // Enter walls
   try {
@@ -157,18 +161,25 @@ function updateMap(req) {
       var p = pMatrix[game.walls[i][0]][game.walls[i][1]];
       matrix[game.walls[i][0]][game.walls[i][1]] = priority.wall * p;
     }
-  } catch(err)
-  {
+  } catch(err) {}
 
-  }
+  // Enter gold
+  try {
+    for (var i = 0; i < game.gold.length; i++) {
+      var p = pMatrix[game.gold[i][0]][game.gold[i][1]];
+      matrix[game.gold[i][0]][game.gold[i][1]] = priority.gold * p;
+    }
+  } catch(err) {}
 
   // Enter snakes
-  for(var i = 0; i < snakes.length; i++){
-    for(var j = 0; j < snakes[i].coords.length; j++){
-      var p = pMatrix[snakes[i].coords[j][0]][snakes[i].coords[j][1]];
-      matrix[snakes[i].coords[j][0]][snakes[i].coords[j][1]] = priority.snake * p;
+  try{
+    for(var i = 0; i < snakes.length; i++){
+      for(var j = 0; j < snakes[i].coords.length; j++){
+        var p = pMatrix[snakes[i].coords[j][0]][snakes[i].coords[j][1]];
+        matrix[snakes[i].coords[j][0]][snakes[i].coords[j][1]] = priority.snake * p;
+      }
     }
-  }
+  } catch(err) {}
 
   matrix = math.add(matrix, pMatrix);
   //prettyPrint(pMatrix);
