@@ -156,10 +156,12 @@ function updateMap() {
   }
   console.log("hey 7");
   // Enter walls
+  /*
   for(var i = 0; i < game.walls.length; i++){
     var p =  pMatrix[game.walls[i][0]][game.walls[i][1]];
     matrix[game.walls[i][0]][game.walls[i][1]] = priority.wall * p;
   }
+  */
   console.log("hey 8");
   // Enter snakes
   for(var i = 0; i < snakes.length; i++){
