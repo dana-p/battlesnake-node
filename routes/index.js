@@ -154,7 +154,7 @@ function updateMap() {
     var p = pMatrix[game.food[i][0]][game.food[i][1]];
     matrix[game.food[i][0]][game.food[i][1]] = priority.food * p;
   }
-  console.log("hey 7");
+
   // Enter walls
   try {
     for (var i = 0; i < game.walls.length; i++) {
@@ -163,9 +163,9 @@ function updateMap() {
     }
   } catch(err)
   {
-    
+
   }
-  console.log("hey 8");
+
   // Enter snakes
   for(var i = 0; i < snakes.length; i++){
     for(var j = 0; j < snakes[i].coords.length; j++){
@@ -173,7 +173,7 @@ function updateMap() {
       matrix[snakes[i].coords[j][0]][snakes[i].coords[j][1]] = priority.snake * p;
     }
   }
-  console.log("hey 9");
+
   matrix = math.add(matrix, pMatrix);
   prettyPrint(pMatrix);
   console.log('\n');
@@ -181,28 +181,29 @@ function updateMap() {
 }
 
 function nextMove() {
-  updateMap();
 
+  updateMap();
+  console.log("hey 1");
   var max = 0;
   var values = [];
-
+  console.log("hey 2");
   var head = our_snake.coords[0];
   var headx = head[0];
   var heady = head[1];
 
   var directionValue = [];
-
+  console.log("hey 3");
   try{directionValue.push({"value" : matrix[headx-1][heady], "direction" : "north"})} catch (TypeError) {}
   try{directionValue.push({"value" : matrix[headx][heady+1], "direction" : "east"})} catch (TypeError) {}
   try{directionValue.push({"value" : matrix[headx+1][heady], "direction" : "south"})} catch (TypeError) {}
   try{directionValue.push({"value" : matrix[headx][heady-1], "direction" : "west"})} catch (TypeError) {}
-
+  console.log("hey 4");
   dirValues = directionValue.map(function (d) {return d.value});
   max = Math.max.apply(Math, dirValues)
-
+  console.log("hey 5");
   availableDirections = directionValue.filter(function(d){return d.value == max });
   console.log(availableDirections);
-
+  
   var dir = availableDirections[Math.floor(Math.random()*availableDirections.length)];
   console.log(dir)
   return dir.direction;
